@@ -1,6 +1,6 @@
 package me.afua.thymeleafsecdemo.controllers;
 
-import me.afua.thymeleafsecdemo.UserService;
+import me.afua.thymeleafsecdemo.entities.UserService;
 import me.afua.thymeleafsecdemo.entities.UserData;
 
 import org.springframework.beans.factory.annotation.Autowired;
