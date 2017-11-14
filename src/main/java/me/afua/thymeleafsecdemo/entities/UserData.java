@@ -6,7 +6,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 import java.util.Set;
 
+
 @Entity
+@Table(name="USER_DATA")
 public class UserData {
 
     @Id
@@ -93,5 +95,10 @@ public class UserData {
 
     public void setRoles(Set<UserRole> roles) {
         this.roles = roles;
+    }
+
+    public void addRoles(UserRole userRole)
+    {
+        roles.add(userRole);
     }
 }
