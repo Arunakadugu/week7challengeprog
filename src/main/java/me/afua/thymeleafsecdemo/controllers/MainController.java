@@ -19,25 +19,25 @@ public class MainController {
     private UserService userService;
 
 
-//    @RequestMapping(value="/register", method = RequestMethod.GET)
-//    public String showRegistrationPages(Model model){
-//        model.addAttribute("userData", new UserData());
-//        return "registration";
-//    }
+    @RequestMapping(value="/register", method = RequestMethod.GET)
+    public String showRegistrationPages(Model model){
+        model.addAttribute("userData", new UserData());
+        return "registration";
+    }
 
-//    @RequestMapping(value="/register", method = RequestMethod.POST)
-//    public String processRegistrationPages(@Valid @ModelAttribute("userData") UserData userData, BindingResult result, Model model){
-//        model.addAttribute("userData", userData);
-//        System.out.println(result);
-//        if(result.hasErrors()){
-//            return "registration";
-//        }
-//        else{
-//            userService.saveUser(userData);
-//            model.addAttribute("message", "User Account Successfully Created");
-//        }
-//        return "index";
-//    }
+    @RequestMapping(value="/register", method = RequestMethod.POST)
+    public String processRegistrationPages(@Valid @ModelAttribute("userData") UserData userData, BindingResult result, Model model){
+        model.addAttribute("userData", userData);
+        System.out.println(result);
+        if(result.hasErrors()){
+            return "registration";
+        }
+        else{
+            userService.saveUser(userData);
+            model.addAttribute("message", "User Account Successfully Created");
+        }
+        return "index";
+    }
     @RequestMapping("/")
     public String showMainPage(Principal p) {
 
@@ -58,28 +58,28 @@ public class MainController {
     }
 
 
-    @GetMapping("/register")
-    public String showRegistrationPage(Model model)
-    {
-        model.addAttribute("userData",new UserData());
-        return "register";
-    }
+//    @GetMapping("/register")
+//    public String showRegistrationPage(Model model)
+//    {
+//        model.addAttribute("userData",new UserData());
+//        return "register";
+//    }
 
-    @PostMapping("/register")
-    public String processRegistrationPage(@Valid @ModelAttribute("userData") UserData userData,
-                                          BindingResult bindingresult, Model model)
-    {
-        model.addAttribute("userData", userData);
-        System.out.println(bindingresult);
-        if(bindingresult.hasErrors()){
-            return "registration";
-        }
-        else{
-            userService.saveUser(userData);
-            model.addAttribute("message", "User Account Successfully Created");
-        }
-        return "index";
-    }
+//    @PostMapping("/register")
+//    public String processRegistrationPage(@Valid @ModelAttribute("userData") UserData userData,
+//                                          BindingResult bindingresult, Model model)
+//    {
+//        model.addAttribute("userData", userData);
+//        System.out.println(bindingresult);
+//        if(bindingresult.hasErrors()){
+//            return "registration";
+//        }
+//        else{
+//            userService.saveUser(userData);
+//            model.addAttribute("message", "User Account Successfully Created");
+//        }
+//        return "index";
+//    }
     @RequestMapping("/pagetwo")
     public String showPageTwo(Model model)
     {

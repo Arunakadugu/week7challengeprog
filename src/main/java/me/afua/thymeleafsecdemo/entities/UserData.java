@@ -5,12 +5,13 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
 
 @Entity
-@Table(name="USER_DATA")
+
 public class UserData {
 
     @Id
@@ -36,7 +37,7 @@ public class UserData {
     private Set<UserRole> roles;
 
     public UserData() {
-//        roles= new Set<UserRole>() ;
+          roles= new HashSet<UserRole>() ;
 
     }
 
