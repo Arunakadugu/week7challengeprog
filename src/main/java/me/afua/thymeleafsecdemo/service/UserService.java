@@ -1,4 +1,4 @@
-package me.afua.thymeleafsecdemo.entities;
+package me.afua.thymeleafsecdemo.service;
 
 import me.afua.thymeleafsecdemo.entities.UserData;
 import me.afua.thymeleafsecdemo.repositories.RoleRepository;
@@ -6,9 +6,7 @@ import me.afua.thymeleafsecdemo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Set;
+
 
 @Service
 public class UserService {

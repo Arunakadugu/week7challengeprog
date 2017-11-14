@@ -4,6 +4,8 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.Set;
 
 
@@ -32,6 +34,12 @@ public class UserData {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(joinColumns = @JoinColumn(name="user_id"),inverseJoinColumns = @JoinColumn(name="role_id"))
     private Set<UserRole> roles;
+
+    public UserData() {
+//        roles= new Set<UserRole>() ;
+
+    }
+
 
     public long getId() {
         return id;
