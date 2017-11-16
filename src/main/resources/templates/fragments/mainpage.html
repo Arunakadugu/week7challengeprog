@@ -20,8 +20,8 @@
             <div class="collapse navbar-collapse" id="afua-navbar">
 
                 <ul class="nav navbar-nav">
-                    <li><a href="/pageone">Page One</a></li>
-                    <li><a href="/pagetwo">Page Two</a></li>
+                    <li th:classappend="${pagenumber}=='1'?active:''"><a href="/pageone">Page One</a></li>
+                    <li th:classappend="${pagenumber}=='2'?active:''"><a href="/pagetwo">Page Two</a></li>
                     <li th:classappend="${pagenumber}=='3'?active:''"><a href="/pagethree">Page Three</a></li>
                 </ul>
             </div>

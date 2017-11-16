@@ -44,9 +44,13 @@ template {
   display: none;
 }
 a {
-  background-color: transparent;
+  background-color: yellow;
+  /*transparent;*/
 }
-a:active,
+a:active
+{
+  background-color: yellow;
+}
 a:hover {
   outline: 0;
 }
@@ -244,6 +248,7 @@ th {
   }
   .navbar {
     display: none;
+      background-color: #e2e2e2;
   }
   .btn > .caret,
   .dropup > .btn > .caret {
@@ -3096,12 +3101,12 @@ fieldset[disabled] .btn-danger:active,
 .btn-danger.disabled.active,
 .btn-danger[disabled].active,
 fieldset[disabled] .btn-danger.active {
-  background-color: #d9534f;
+  background-color:#3ABE41;
   border-color: #d43f3a;
 }
 .btn-danger .badge {
   color: #d9534f;
-  background-color: #fff;
+  background-color:#e2e2e2;
 }
 .btn-link {
   font-weight: normal;
@@ -3235,7 +3240,7 @@ tbody.collapse.in {
   font-size: 14px;
   text-align: left;
   list-style: none;
-  background-color: #fff;
+  background-color:#000000;
   -webkit-background-clip: padding-box;
           background-clip: padding-box;
   border: 1px solid #ccc;

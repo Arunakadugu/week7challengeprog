@@ -32,7 +32,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 //I have a custom login form, but why can't I see my CSS?
 
-                .antMatchers("/css/**","/js/**","/img/**","/h2-console/**","/register","/").permitAll()
+                .antMatchers("/css/**","/js/**","/img/**","/h2-console/**","/register","/","/fonts/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").permitAll()
@@ -40,13 +40,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login").permitAll().permitAll();
+//        .and()
+//        .httpBasic();
 
 
     }
 
     @Override
     protected void configure (AuthenticationManagerBuilder auth) throws Exception{
-        auth.inMemoryAuthentication().withUser("user").password("notpa$$word").roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("admin").password("password").roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
         auth.userDetailsService(userDetailsServiceBean());
     }
 }
