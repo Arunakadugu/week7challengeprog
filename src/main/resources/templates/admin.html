@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="index::headstuff">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}"></title>
+</head>
+<body>
+<div th:replace="fragments/mainpage::navclass"></div>
+
+<div th:replace="fragments/mainpage :: everydiv"></div>
+<div sec:authorize="hasAuthority('JobSeekers')"></div>
+</body>
+</html>

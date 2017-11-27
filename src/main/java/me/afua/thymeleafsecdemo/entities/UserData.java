@@ -1,18 +1,22 @@
 package me.afua.thymeleafsecdemo.entities;
 
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
+ import org.hibernate.validator.constraints.Email;
+ import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.persistence.*;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-
+        import javax.persistence.*;
+        import java.util.ArrayList;
+        import java.util.Collection;
+        import java.util.HashSet;
+        import java.util.Set;
 
 @Entity
-
 public class UserData {
+    public UserData(){
+
+        this.roles = new HashSet<> ();
+
+    }
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,25 +26,26 @@ public class UserData {
     @NotEmpty
     private String email;
 
+    @NotEmpty
     private String password;
 
+    @NotEmpty
     private String firstName;
 
+    @NotEmpty
     private String lastName;
 
     private boolean enabled;
 
+    @NotEmpty
     private String username;
 
+
+    //The relationship many user's can have many roles each person can have one or more or zero
     @ManyToMany(fetch = FetchType.EAGER)
+    //Join Coulnm one it will save for from this table for realtionship to role in database
     @JoinTable(joinColumns = @JoinColumn(name="user_id"),inverseJoinColumns = @JoinColumn(name="role_id"))
     private Set<UserRole> roles;
-
-    public UserData() {
-          roles= new HashSet<UserRole>() ;
-
-    }
-
 
     public long getId() {
         return id;
@@ -106,8 +111,8 @@ public class UserData {
         this.roles = roles;
     }
 
-    public void addRoles(UserRole userRole)
-    {
-        roles.add(userRole);
+    public void addRole(UserRole theRole){
+        roles.add ( theRole );
+
     }
 }

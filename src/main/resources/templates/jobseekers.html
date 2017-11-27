@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head th:replace="index::headstuff">
+    <meta charset="utf-8" />
+    <title>${title}</title>
+</head>
+<body>
+<div class="container">
+    <h4>Fill your information</h4>
+    <form action="#" th:action ="@{/process}" th:object="${jobseekers}" method="post">
+        <input type="hidden" th:field="*{id}" />
+       Name <mark><strong>
+                        <span th:if="${#fields.hasErrors('name')}"
+                              th:errors="*{name}">Name Error</span></strong></mark>
+        <input type="text" id="fullName" placeholder="full_name"
+               th:field="*{full_name}" /><br />
+        Email <mark><strong>
+                        <span th:if="${#fields.hasErrors('email')}"
+                              th:errors="*{email}">Email Error</span></strong></mark>
+        <input type="text" id="email" placeholder="Email"
+               th:field="*{email}" /><br />
+
+
+       Education <mark><strong>
+                        <span th:if="${#fields.hasErrors('education')}"
+                              th:errors="*{level}">education Error</span></strong></mark>
+        <input type="text" id="education" placeholder="education"
+               th:field="*{education}" /><br />
+
+        Skills <mark><strong>
+                        <span th:if="${#fields.hasErrors('skills')}"
+                              th:errors="*{field}">skills Error</span></strong></mark>
+        <input type="text" id="field" placeholder="skills"
+               th:field="*{skills}" /><br />
+
+        college <mark><strong>
+                        <span th:if="${#fields.hasErrors('college')}"
+                              th:errors="*{college}">college Error</span></strong></mark>
+        <input type="text" id="college" placeholder="college"
+               th:field="*{college}" /><br />
+
+       year of Education <mark><strong>
+                        <span th:if="${#fields.hasErrors('year of education')}"
+                              th:errors="*{year of education}">year of education Error</span></strong></mark>
+        <input type="text" id="year of education" placeholder="year of education"
+               th:field="*{education}" /><br />
+
+        Position <mark><strong>
+                        <span th:if="${#fields.hasErrors('position')}"
+                              th:errors="*{position}">Position Error</span></strong></mark>
+        <input type="text" id="position" placeholder="Position"
+               th:field="*{position}" /><br />
+
+       Experience <mark><strong>
+                        <span th:if="${#fields.hasErrors('experience')}"
+                              th:errors="*{experience}">experience Error</span></strong></mark>
+        <input type="text" id="experience" placeholder="experience"
+               th:field="*{experience}" /><br />
+
+
+
+
+        <button type="submit" class="btn btn-default">Submit</button>
+
+    </form>
+</div>

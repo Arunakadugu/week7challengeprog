@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="ww.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<a href="/">Show all pets</a><br />
+Name:<span th:text="${jobseeker.Fullname}" ></span><br />
+Email:<span th:text="${jobseeker.Email}" ></span><br />
+Education:<span th:text="${jobseeker.Level_of_education}" ></span><br/>
+Feild of Study:<span th:text="${jobseeker.Field_of_study}"></span><br/>
+College:<span th:text="${jobseeker.Wherestudy}"></span><br/>
+Year of Study:<p th:text="${jobseeker.Whenstudy}"></p>
+Place of work:<span th:text="${jobseeker.Wherework}"></span><br/>
+Position:<p th:text="${jobseeker.Position}"></p>
+Years of Experience:<span th:text="${jobseeker.Whenwork}"></span><br/>
+Skills:<span th:text="${jobseeker.Field_of_skill}"></span><br/>
+Level of skills:<p th:text="${jobseeker.Level_of_skill}"></p>
+<a th:href="@{/delete/{id}(id=${pet.id})}">Delete this  record</a>
+</body>
+</html>
+

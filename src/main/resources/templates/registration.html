@@ -1,87 +1,45 @@
 <!DOCTYPE html>
-<html  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title>Spring Security Example</title>
-    <link href="/css/bootstrap.css" rel="stylesheet" />
-    <link href="/css/landing-page.css" rel="stylesheet"/>
-
-    <!--     Fonts and icons     -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300' rel='stylesheet' type='text/css'>
-    <link href="/css/pe-icon-7-stroke.css" rel="stylesheet" />
+<html xmlns:th="www.thymeleaf.org">
+<head th:replace="index::headstuff">
+    <meta charset="utf-8" />
+    <title>${title}</title>
 </head>
 <body>
-<h4>New USer Registration</h4>
-<form  action="#" th:action="@{/register}" th:object="${userData}" method="post">
-    First Name <mark><strong>
-    <span th:if="${#fields.hasErrors('firstName')}"
-          th:errors="*{firstName}">First Name Error</span>
-</strong></mark>
-<input type="text" id="firstName" placeholder="First Name" th:field="*{firstName}" /><br />
-Last Name <mark>
-    <strong><span th:if="${#fields.hasErrors('lastName')}"
-                  th:errors="*{lastName}">Last Name Error</span>
-    </strong></mark>
-    <input type="text" id="lastName" placeholder="Last Name" th:field="*{lastName}" /><br />
-    Email <mark><strong><span th:if="${#fields.hasErrors('email')}"
-                              th:errors="*{email}">Email Error</span>
 
-</strong></mark>
-    <input type="text" id="email" placeholder="email" th:field="*{email}" /><br />
+<h4>New User Registration</h4>
+<form autocomplete="off" action="#" th:action="@{/register}"
+      th:object="${user}" method="post">
+    First Name <mark><strong>
+                        <span th:if="${#fields.hasErrors('firstName')}"
+                              th:errors="*{firstName}">First Name Error</span></strong></mark>
+    <input type="text" id="firstName" placeholder="First Name"
+           th:field="*{firstName}" /><br />
+    Last Name <mark><strong>
+                        <span th:if="${#fields.hasErrors('lastName')}"
+                              th:errors="*{lastName}">Last Name Error</span></strong></mark>
+    <input type="text" id="lastName" placeholder="Last Name"
+           th:field="*{lastName}" /><br />
+    Email <mark><strong>
+                        <span th:if="${#fields.hasErrors('email')}"
+                              th:errors="*{email}">Email Error</span></strong></mark>
+    <input type="text" id="email" placeholder="Email"
+           th:field="*{email}" /><br />
     Username <mark><strong>
-    <span th:if="${#fields.hasErrors('username')}"
-          th:errors="*{username}">User Name Error</span>
-</strong></mark>
-    <input type="text" id="username" placeholder="Username" th:field="*{username}" /><br />
- Password <mark><strong>
-    <span th:if="${#fields.hasErrors('password')}"
-          th:errors="*{password}">Password Error</span>
-</strong></mark>
-    <input type="text" id="password" placeholder="Password" th:field="*{password}" /><br />
+                        <span th:if="${#fields.hasErrors('username')}"
+                              th:errors="*{username}">Username Error</span></strong></mark>
+    <input type="text" id="username" placeholder="Username"
+           th:field="*{username}" /><br />
+    Password <mark><strong>
+                        <span th:if="${#fields.hasErrors('password')}"
+                              th:errors="*{password}">Password Error</span></strong></mark>
+    <input type="text" id="password" placeholder="Password"
+           th:field="*{password}"/><br />
+    <!--<select th:field="{{}}">-->
+    <!--<option>Job Seeker</option>-->
+    <!--<option>Recruiter</option>-->
+    <!--</select>select-->
     <button type="submit" class="btn btn-default">Submit</button>
 </form>
-<footer class="footer">
-    <div class="container">
-        <nav class="pull-left">
-            <ul>
-                <li>
-                    <a href="#">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Company
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Portfolio
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Blog
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <div class="social-area pull-right">
-            <a class="btn btn-social btn-facebook btn-simple">
-                <i class="fa fa-facebook-square"></i>
-            </a>
-            <a class="btn btn-social btn-twitter btn-simple">
-                <i class="fa fa-twitter"></i>
-            </a>
-            <a class="btn btn-social btn-pinterest btn-simple">
-                <i class="fa fa-pinterest"></i>
-            </a>
-        </div>
-        <div class="copyright">
-            &copy; 2016 <a href="http://www.creative-tim.com">Creative Tim</a>, made with love
-        </div>
-    </div>
-</footer>
+</div>
 </body>
 </html>
